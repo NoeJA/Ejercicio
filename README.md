@@ -1,5 +1,5 @@
 # Ejercicio
 
-##Termodinámica
-##Computación 1
-##Ecuaciones diferenciales
+## Termodinámica
+## Computación 1
+## Ecuaciones diferenciales
