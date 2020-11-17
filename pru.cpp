@@ -1,16 +1,17 @@
 #include <iostream>
 #include <vector>
 #include<bits/stdc++.h>
+
 #include "inventario.h"
 using namespace std;
 
-//Declaraci?n de variables
+//Declaracion de variables
 vector<string> articleVec;
 vector<int> nArticles;
 vector<float> Cost;
 vector<float> Sell;
 
-// Declaraci?n de funciones
+// Declaracion de funciones
 void menu();
 int option_menu();
 
@@ -27,7 +28,7 @@ int main() {
     switch (option_menu()) {
         case 1: {
             int num;
-            cout << "Si desea añadir otro articulo presione 1, para salir presione cualquier otro numero" << endl;
+            cout << "Si desea aÃ±adir otro articulo presione 1, para salir presione cualquier otro numero" << endl;
             cin >> num;
             while (num == 1) {
                 string answer;
@@ -59,26 +60,34 @@ int main() {
             cout << "La ganancia aproximada con base en el inventario es: " << gain << endl;
             break;
             
-        case 4:{
-        	int index;
+    }
+        case 4: {
+        	int index,quant;
         	cout<<"Ingrese el indice de elemento a eliminar"<<endl;
         	cin>>index;
-        	DelArticle(articleVec,index);
+        	cout<<"Ingrese la cantidad de elementos a eliminar"<<endl;
+        	cin>>quant;
+        	if(quant>=nArticles[index]){
+        		minventario.DelArticles(articleVec,nArticles,Cost,Sell,index,quant);
+			}
+        	else{
+        		minventario.DelArticle(nArticles,index, quant);
+			}
 			break;
 		}
-        }
+        
         default:
             cout << "Operacion no valida" << endl;
             break;
     }
-    cout<<"¿Desea continuar con el inventario? presione 1, de lo contrario, presione otro numero"<<endl;
+    cout<<"Â¿Desea continuar con el inventario? presione 1, de lo contrario, presione otro numero"<<endl;
     cin>>res;
 }
     return 0;
 }
 void menu(){
 	cout<<"Ingrese la opcion que desea utilizar"<<endl;
-	cout<<"1.Añadir un articulo"<<endl<<"2.Visualizar inventario"<<endl<<"3.Calcular ganancia"<<"4.Eliminar un articulo"<<endl;
+	cout<<"1.AÃ±adir un articulo"<<endl<<"2.Visualizar inventario"<<endl<<"3.Calcular ganancia"<<"4.Eliminar un articulo"<<endl;
 	
 	
 }
