@@ -6,19 +6,24 @@
 
 using namespace std;
 
-//Agregar artículos
+//Agregar artÃ­culos
 vector<string> inventario::AddArticle(vector<string> articleVec,string article){
     articleVec.push_back(article);
     return(articleVec);
 }
 
-//Borrar artículos
-vector<string> inventario::DelArticle(vector<string> articleVec,vector<int> nArticles,vector<float> Cost,vector<float> Sell, int index){
+//Borrar artÃ­culos
+void inventario::DelArticles(vector<string> articleVec,vector<int> nArticles,vector<float> Cost,vector<float> Sell, int index,int quant){
+	
 	articleVec.erase(articleVec.begin() + index );
 	nArticles.erase(nArticles.begin() + index );
-	return (//Todos los vectores//);
+	Cost.erase(Cost.begin()+index);
+	Sell.erase(Sell.begin()+index);
+}
 
-
+void inventario::DelArticle(vector<int> nArticles, int index,int quant){
+	
+	nArticles[index]-=nArticles[quant];
 }
 
 //Establece el numero de articulos para cada articlo
